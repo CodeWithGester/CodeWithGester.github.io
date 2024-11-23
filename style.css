@@ -1,0 +1,1541 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;500;600&family=Rancho&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10px;
+}
+
+:root {
+    --bg-color-1: #111111;
+    --bg-color-2: #222222;
+    --bg-color-3: #333333;
+    --text-color-1: #ffffff;
+    --text-color-2: #e9e9e9;
+    --text-color-3: white;
+}
+
+body.light-mode
+{
+    --bg-color-1: white;
+    --bg-color-2: #ffffff;
+    --bg-color-3: #e0e0e0;
+    --text-color-1: #111111;
+    --text-color-2: #333333;
+    --text-color-3: black;
+}
+
+.active-button:active {
+    transform: scale(0.99);
+}
+
+.toggle-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#mode-toggle {
+    width: 40%;
+    cursor: pointer;
+    border: 1px solid gray;
+    background-color: var(--bg-color-2);
+    color: var(--text-color-2);
+    border-radius: 10px;
+    font-size: 15px;
+    position: absolute;
+    font-family: Poppins;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color-1);
+    user-select: none;
+    font-family: Poppins, Arial, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.border-top {
+    position: fixed;
+    height: 1px;
+    width: 100%;
+    background-color: gray;
+    top: 0;
+    box-shadow: 0px 0px 10px 5px var(--bg-color-1);
+    transition: all 0.3s ease-in-out;
+    z-index: 150;
+}
+
+.border-bottom {
+    position: fixed;
+    height: 1px;
+    width: 100%;
+    background-color: gray;
+    bottom: 0;
+    box-shadow: 0px 0px 10px 5px var(--bg-color-1);
+    transition: all 0.3s ease-in-out;
+    z-index: 150;
+}
+
+.border-left {
+    position: fixed;
+    height: 100%;
+    width: 1px;
+    background-color: gray;
+    left: 0;
+    z-index: 160;
+}
+
+.border-right {
+    position: fixed;
+    height: 100%;
+    width: 1px;
+    background-color: gray;
+    right: 0;
+    z-index: 160;
+}
+
+.body-area {
+    width: auto;
+    height: 100%;
+    padding: 50px 70px;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ----- DEVELOPER AREA ----- */
+.developer-area {
+    background-color: var(--bg-color-3);
+    width: 22%;
+    height: 100%;
+    position: sticky;
+    top: 50px;
+    margin-right: 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    padding: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.developer-image {
+    width: auto;
+    height: auto;
+    display: flex;
+    padding: 40px;
+}
+
+.hover-image {
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.hover-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-image a {
+    position: absolute;
+    text-decoration: none;
+    visibility: hidden;
+    transition-delay: 0.5s;
+}
+
+.hover-image i {
+    background-color: transparent;
+    color: transparent;
+    z-index: 1000;
+    display: flex;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.5s;
+    visibility: hidden;
+}
+.hover-image:hover img {
+    transform: scale(1.2);
+    filter: brightness(50%) blur(2px);
+}
+
+.hover-image:hover a {
+    visibility: visible;
+}
+
+.hover-image:hover i {
+    background-color: var(--bg-color-3);
+    color: var(--text-color-3);
+    border: 1px solid gray;
+    visibility: visible;
+}
+
+.hover-image:not(:hover) a,
+.hover-image:not(:hover) i {
+    transition: 0s;
+    transition: all 0.3s ease-in-out;
+}
+
+.developer-name {
+    text-align: center;
+    color: var(--text-color-3);
+    margin-top: -50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.developer-name h2 {
+    font-size: 25px;
+    position: relative;
+}
+
+
+.developer-name h2::before {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 0%;
+    top: 90%;
+    left: 49.8%;
+    background-color: var(--text-color-3);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.developer-name h2::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 0%;
+    top: 90%;
+    right: 49.8%;
+    background-color: var(--text-color-3);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.developer-area:hover h2::before,
+.developer-area:hover h2::after {
+    width: 45%;
+}
+
+.developer-name p {
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin: 0px 50px;
+    font-size: 13px;
+    background-color: var(--bg-color-1);
+    color: var(--text-color-3);
+    margin-top: -10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.horizontal-line {
+    content: '';
+    background-color: gray;
+    height: 1px;
+    margin: 20px 10px;
+}
+
+.contact-me-area {
+    padding: 0px 10px;
+    margin-top: -10px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    overflow: hidden;
+    background-color: var(--bg-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-container i {
+    color: var(--text-color-3);
+    font-size: 15px;
+    transition: all  0.3s ease-in-out;
+}
+
+.contact-container:hover i {
+    animation: tiltAnimation 0.6s forwards;
+}
+
+.contact-details {
+    display: block;
+    width: auto;
+    margin-left: 5px;
+    line-height: 0.5;
+}
+
+.contact-details h3 {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    font-size: 15px;
+}
+
+.contact-details p {
+    font-size: 12px;
+    color: gray;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-container:hover p {
+    color: var(--text-color-3);
+}
+
+.social-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-area a {
+    color: var(--text-color-3);
+    padding: 5px 10px;
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-area a:hover {
+    color: gray;
+}
+
+@keyframes tiltAnimation {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-25deg) scale(1.5); }
+    50% { transform: rotate(25deg) scale(1.5); }
+    75% { transform: rotate(0deg) scale(1.5); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+/* ----- NAVIGATION AREA ----- */
+.navigation-area {
+    display: flex;
+    justify-content: right;
+    position: sticky;
+    top: 0px;
+    z-index: 200;
+}
+
+.navigation-bar {
+    width: auto;
+    height: auto;
+    display: flex;
+    border: 1px solid gray;
+    background-color: var(--bg-color-3);
+    transition: all 0.3s ease-in-out;
+    border-radius: 0px 0px 0px 20px;
+    margin-top: -1px;
+    margin-right: -1px;
+    box-shadow: 0px 2px 10px var(--bg-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+.navigation-area a {
+    color: var(--text-color-3);
+    text-decoration: none;
+    padding: 15px 15px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.navigation-area a:hover {
+    color: gray;
+}
+
+.navigation-area a::before {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 2px;
+    top: 70%;
+    left: 15px;
+    background-color: var(--text-color-3);
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navigation-area a:hover::before {
+    width: 35%;
+}
+
+/* ----- CONTENT AREA ----- */
+.content-area {
+    background-color: var(--bg-color-3);
+    width: 78%;
+    height: 100%;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    transition: all 0.3s ease-in-out;
+}
+
+.inside-area {
+    width: auto;
+    margin: -80px 20px 0px 20px;
+}
+
+.about-area,
+.project-area,
+.favorite-area,
+.testimonial-area,
+.contact-area {
+    margin-top: 40px;
+}
+
+.about-title,
+.project-title,
+.favorite-title,
+.testimonial-title,
+.contact-title {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    height: auto;
+}
+
+.about-title {
+    width: 163px;
+}
+
+.project-title {
+    width: 220px;
+}
+
+.favorite-title {
+    width: 229px;
+}
+
+.testimonial-title {
+    width: 283px;
+}
+
+.contact-title {
+    width: 212px;
+}
+
+.about-title::before,
+.project-title::before,
+.favorite-title::before,
+.testimonial-title::before,
+.contact-title::before {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 2px;
+    top: 45px;
+    left: 0;
+    background-color: var(--text-color-3);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.about-title::after,
+.project-title::after,
+.favorite-title::after,
+.testimonial-title::after,
+.contact-title::after {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 2px;
+    top: 50px;
+    left: 0;
+    background-color: var(--text-color-3);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.about-area:hover .about-title::after,
+.project-area:hover .project-title::after,
+.favorite-area:hover .favorite-title::after,
+.testimonial-area:hover .testimonial-title::after,
+.contact-area:hover .contact-title::after {
+    width: 25%;
+}
+
+/* ----- ABOUT AREA ----- */
+.more-info {
+    text-indent: 50px;
+    text-align: justify;
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    font-size: 15px;
+}
+
+.info-skill {
+    display: flex;
+    padding: 0px 40px;
+}
+
+.info-area {
+    width: 40%;
+    margin-right: 20px;
+}
+
+.info-area li {
+    border-bottom: 1px solid gray;
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    font-size: 15px;
+    line-height: 2;
+    text-indent: 10px;
+}
+
+.info-area span {
+    color: gray;
+}
+
+.skill-area {
+    width: 60%;
+    margin-left: 20px;
+    position: relative;
+}
+
+.skill-row {
+    margin-top: -15px;
+    margin-bottom: 45px;
+}
+
+.skill-row h3 {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    font-size: 15px;
+}
+
+.progress {
+    margin-top: -10px;
+    position: relative;
+    background-color: var(--bg-color-1);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: 5px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    z-index: 100;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 5px;
+    background-color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+    z-index: 100;
+}
+
+.progress-percent {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    color: gray;
+    font-size: 15px;
+    z-index: 100;
+}
+
+.about-area:hover .skill1 .progress-bar {
+    animation: Editing 2s  ease-in-out;
+}
+
+.about-area:hover .skill2 .progress-bar {
+    animation: Coding 2s ease-in-out;
+}
+
+.about-area:hover .skill3 .progress-bar {
+    animation: Computer 2s ease-in-out;
+}
+
+.about-area:hover .skill4 .progress-bar {
+    animation: Communication 2s ease-in-out;
+}
+
+.about-area:hover .skill5 .progress-bar {
+    animation: Other 2s ease-in-out;
+}
+
+.about-button {
+    display: flex;
+    gap: 10px;
+    margin-top: -10px;
+    position: absolute;
+}
+
+.about-button a {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.about-button a:hover {
+    color: var(--bg-color-1);
+    background-color: var(--text-color-3);
+}
+
+@keyframes Editing  {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 73%;
+    }
+}
+
+@keyframes Coding  {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 79%;
+    }
+}
+
+@keyframes Computer  {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 85%;
+    }
+}
+
+@keyframes Communication  {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 54%;
+    }
+}
+
+@keyframes Other  {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 69%;
+    }
+}
+
+/* ----- PROJECT AREA ----- */
+.project-area p {
+    color: var(--text-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* ----- FAVORITE AREA ----- */
+.favorite-area {
+    width: 100%;  
+}
+
+.favorite-things {
+    display: flex;
+}
+
+.favorite-row {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.favorite-container {
+    width: 100%;
+    height: auto;
+    margin: 0px 5px 0px 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+.favorite-container h2 {
+    position: relative;
+    color: var(--text-color-1);
+    margin: 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.favorite-container a {
+    color: gray;
+    transition: all 0.3s ease-in-out;
+    margin: 0px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.favorite-container a:hover {
+    color: white;
+}
+
+.favorite-container h2::before {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 2px;
+    top: 30px;
+    left: 49.5%;
+    background-color: white;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.favorite-container h2::after {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 2px;
+    top: 30px;
+    right: 49.5%;
+    background-color: white;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.favorite-container:hover h2::before,
+.favorite-container:hover h2::after {
+    width: 30%;
+}
+
+/* ----- TESTIMONIAL AREA ----- */
+.team-area {
+    width: 100%;
+}
+
+.team-area h2 {
+    text-align: center;
+    font-size: 30px;
+    margin: 0px;
+    color: var(--text-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+.team-container {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    padding: 5px 2.5px;
+    overflow: hidden;
+}
+
+.team-image {
+    flex: 1;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid gray;
+    margin: 0px 2.5px;
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+}
+
+.team-image:hover {
+    flex: 3;
+}
+
+.team-name {
+    position: absolute;
+    text-align: center;
+    color: var(--text-color-3);
+    top: 278px;
+    transition: all 0.5s ease-in-out;
+    font-size: 0px;
+    padding: 0px 5px;
+    background-color: var(--bg-color-3);
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.team-title {
+    position: absolute;
+    border: 1px solid gray;
+    font-size: 0px;
+    top: 320px;
+    color: var(--text-color-3);
+    background-color: var(--bg-color-3);
+    padding: 0px 5px;
+    border-radius: 5px 5px 0px 0px;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+}
+
+.team-image:hover .team-name {
+    transform: translateY(-100px);
+    font-size: 20px;
+}
+
+.team-image:hover .team-title {
+    transform: translateY(-100px);
+    font-size: 12px;
+}
+
+.team-image:hover img {
+    filter: brightness(100%);
+}
+
+.team-container:hover .team-image:not(:hover) {
+    filter: brightness(30%) blur(2px);
+}
+
+.feedback-row-list {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.feedback-row {
+    width: auto;
+    height: auto;
+    display: flex;
+}
+
+.feedback-container {
+    height: 110px;
+    background-color: var(--bg-color-3);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid gray;
+    margin-left: -1px;
+    margin-top: -1px;
+    margin-right: -1px;
+}
+
+.hover-here {
+    display: flex;
+    width: 100%;
+    background-color: var(--bg-color-1);
+    height: 225px;
+    margin: 5px;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid gray;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-text {
+    position: absolute;
+    background-color: var(--bg-color-3);
+    border-radius: 10px;
+    padding: 10px;
+    bottom: 25px;
+    color: var(--text-color-3);
+    font-size: 12px;
+    border: 1px solid gray;
+    transition: all 0.3s ease-in-out;
+}
+
+.image-and-details {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    border-bottom: 1px solid gray;
+}
+
+.feedback-image {
+    width: 30%;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.feedback-image img {
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.hover-picture {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.hover-picture a {
+    display: flex;
+    position: absolute;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+    color: transparent;
+    border: 1px solid transparent;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.5s;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+.hover-picture img {
+    width: 100%;
+}
+
+.feedback-image:hover img {
+    filter: brightness(50%);
+}
+
+.feedback-image:hover .hover-picture a {
+    color: var(--text-color-3);
+    background-color: var(--bg-color-3);
+    border: 1px solid gray;
+    visibility: visible;
+}
+
+.feedback-image:not(:hover) .hover-picture a {
+    transition-delay: 0s;
+}
+
+.feedback-image a:hover i {
+    color: gray;
+}
+
+.feedback-details {
+    width: 70%; 
+    height: auto;
+    display: block;
+    align-items: center;
+    margin-left: -20px;
+}
+
+.name-type {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+}
+
+.name-type span {
+    color: gray;
+    font-weight: lighter;
+}
+
+.date,
+.time {
+    color: gray;
+    font-size: 12px;
+    margin-top: -15px;
+}
+
+.feedback-comment {
+    display: flex;
+    padding: 0px 10px;
+    text-align: justify;
+    text-indent: 50px;
+    font-size: 13.5px;
+    color: var(--text-color-3);
+    margin-top: 100px;
+    font-weight: lighter;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+}
+
+.hover-here:hover .feedback-container {
+    height: 225px;
+}
+
+.hover-here:hover .feedback-comment {
+    transform: translateY(-110px);
+}
+
+.hover-here:hover .hover-text {
+    background-color: transparent;
+    color: transparent;
+    border: 1px solid transparent;
+    transition-delay: 0s;
+}
+
+.hover-here:not(:hover) .hover-text {
+    transition-delay: 0.5s;
+}
+
+/* ----- CONTACT AREA ----- */
+.contact-area {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.contact-row {
+    display: flex;
+}
+
+.contact-map {
+    width: 50%;
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0px 5px;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.contact-form {
+    width: 50%;
+    margin: 0px 5px;
+}
+
+.contact-input {
+    display: block;
+    text-align: center;
+}
+
+.contact-input h2 {
+    margin: 0px;
+    color: var(--text-color-1);
+    transition: all 0.3s ease-in-out;
+}
+
+.input-holder {
+    width: 100%;
+    height: 45px;
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--text-color-3);
+    font-size: 15px;
+    font-family: Poppins;
+    padding: 0px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.message-holder {
+    width: 100%;
+    height: 200px;
+    border: 1px solid gray;
+    outline: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--text-color-3);
+    font-size: 15px;
+    font-family: Poppins;
+    padding: 10px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-name,
+.input-email,
+.input-subject,
+.input-message {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.send-button {
+    outline: none;
+    padding: 5px 15px;
+    font-size: 15px;
+    font-family: Poppins;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--text-color-1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    color: var(--bg-color-1);
+    background-color: var(--text-color-1);
+}
+
+.send-button i {
+    margin-right: 5px;
+}
+
+/* ----- FOOTER AREA ----- */
+.footer-area {
+    border-top: 1px solid gray;
+    height: auto;
+    display: block;
+}
+
+.logo-donation {
+    display: flex;
+    padding: 20px;
+}
+
+.logo-area {
+    align-items: center;
+    height: 100%;
+    padding: 10px 20px;
+}
+
+.logo-details {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    display: flex;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #333333;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.logo-area img {
+    width: 75px;
+    height: 75px;
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-image:hover img {
+    transform: scale(1.2);
+}
+
+.logo-name {
+    font-size: 15px;
+    display: flex;
+    margin-left: 10px;
+    position: relative;
+    justify-content: center;
+}
+
+.logo-name h2 {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+}
+
+.join-group {
+    position: absolute;
+    text-decoration: none;
+    color: var(--text-color-3);
+    background-color: var(--bg-color-3);
+    padding: 0px 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 14px;
+    top: 55px;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.join-group:hover {
+    color: var(--bg-color-1);
+    background-color: var(--text-color-3);
+}
+
+.donation-area {
+    width: 50%;
+    padding: 0px 20px;
+}
+
+.donation-area h2 {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    margin: 0;
+}
+
+.donation-area .donation-description {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    text-align: justify;
+    font-size: 15px;
+    border-bottom: 1px solid gray;
+    padding: 0px 15px 10px 15px;
+    text-indent: 25px;
+}
+
+.donation-holder {
+    height: 40px;
+    border: 1px solid gray;
+    font-family: Poppins;
+    width: 100%;
+    outline: none;
+    background-color: var(--bg-color-3);
+    transition: all 0.3s ease-in-out;
+    padding: 0px 10px;
+    color: var(--text-color-3);
+    font-size: 15px;
+}
+
+.donation-title {
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.amount {
+    border-radius: 10px;
+    padding-left: 25px;
+    width: 40%;
+}
+
+.currency {
+    position: absolute;
+    left: 10px;
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    font-size: 15px;
+}
+
+.email {
+    border-radius: 10px;
+}
+
+.card {
+    border-radius: 10px 10px 0px 0px;
+    padding-right: 110px;
+}
+
+.card-type  {
+    position: absolute;
+    display: flex;
+    right: 5px;
+}
+
+.card-type img {
+    height: 25px;
+}
+
+.expiry {
+    margin-right: -1px;
+    margin-top: -1px;
+    border-radius: 0px 0px 0px 10px;
+}
+
+.code {
+    margin-left: -1px;
+    margin-top: -1px;
+    border-radius: 0px 0px 10px 0px;
+}
+
+.donation-amount {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.donation-amount a {
+    border: 1px solid gray;
+    height: 40px;
+    color: var(--text-color-3);
+    display: flex;
+    width: 12%;
+    border-radius: 10px;
+    margin-left: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.donation-amount a:hover {
+    color: var(--bg-color-1);
+    background-color: var(--text-color-3);
+}
+
+.donation-email {
+    display: flex;
+}
+
+.donation-type {
+    display: flex;
+    position: relative;
+}
+
+.donation-card  {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.donation-app {
+    font-size: 11px;
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+}
+
+.donation-app:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+.expiry-code {
+    display: flex;
+}
+
+.donation-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cardholder-country {
+    display: flex;
+}
+
+.cardholder-type {
+    margin-right: 2px;
+    width: 59%;
+}
+
+.cardholder {
+    display: flex;
+    border-radius: 10px;
+}
+
+.donation-cardholder {
+    display: flex;
+}
+
+.country-type {
+    margin-left: 2px;
+    width: 41%;
+}
+
+.country {
+    display: flex;
+    border-radius: 10px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.donation-country {
+    display: flex;
+}
+
+
+.donation-button button {
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    font-family: Poppins;
+    border: 1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--bg-color-1);
+    background-color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.mini-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.mini-navbar a {
+    color: var(--text-color-3);
+    text-decoration: none;
+    padding: 0px 10px;
+    font-size: 10px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    margin-left: -0.5px;
+    margin-right: -0.5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.mini-navbar a:hover {
+    color: gray;
+}
+
+.copyright {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    border-top: 1px dotted gray;
+}
+
+.copyright p {
+    font-size: 12px;
+    color: var(--text-color-3);
+    transition: all 0.3s ease-in-out;
+    line-height: 0;
+}
+
+.footer-navigation {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    z-index: 2000;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(50px);
+}
+
+.footer-navbar {
+    background-color: var(--bg-color-3);
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-radius: 20px 20px 00px 0px;
+    display: flex;
+    width: auto;
+}
+
+.footer-navbar a {
+    text-decoration: none;
+    color: var(--text-color-3);
+    padding: 10px 20px;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.footer-navbar a:hover {
+    color: gray;
+}
+
+.footer-navigation a::before {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 2px;
+    top: 70%;
+    left: 20px;
+    background-color: var(--text-color-3);
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-navigation a:hover::before {
+    width: 35%;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 700px) {
+    html {
+        scroll-padding-top: 10px;
+    }
+
+    .body-area {
+        justify-content: center;
+    }
+
+    .developer-area {
+        transform: translateX(-300px);
+        margin: 0;
+    }
+
+    .content-area {
+        width: 100%;
+        margin: 0;
+        transform: translateX(-80px);
+    }
+
+    .navigation-bar {
+        border-radius: 0px;
+        margin-left: -1px;
+        transform: translateY(-150px);
+    }
+
+    .footer-navigation {
+        transform: translateY(0px);
+    }
+
+    .footer-navbar {
+        display: flex;
+    }
+
+    .footer-navbar a {
+        text-decoration: none;
+        color: var(--text-color-3);
+    }
+
+    .inside-area {
+        margin-top: -125px;
+    }
+
+    .about-area {
+        margin-top: 90px;
+    }
+
+    .info-skill {
+        display: block;
+        padding: 0;
+    }
+
+    .info-area {
+        display: flex;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        gap: 20px;
+    }
+
+    .skill-area {
+        display: flex;
+        width: auto;
+        justify-content: center;
+        margin: 20px 50px 0px 50px;
+    }
+
+    .skill-container {
+        width: 100%;
+    }
+
+    .about-button {
+        bottom: 0;
+    }
+}
+
+.test {
+    width: 50%;
+}
+
+
+
